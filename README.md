@@ -1,0 +1,2 @@
+# Climate Migration Risk Analysis and Forecasting in Europe
+ A project leveraging Copernicus ERA5 datasets to analyze temperature trends and assess climate migration risks in Europe. The project uses Python libraries like `cdsapi`, `xarray`, and `matplotlib` for data retrieval, processing, and visualization. Currently under development, with a focus on creating risk maps and forecasting future migration patterns due to climate change.
