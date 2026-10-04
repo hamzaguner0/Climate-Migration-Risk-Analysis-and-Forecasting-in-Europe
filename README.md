@@ -1,35 +1,24 @@
-# Climate Migration Risk Analysis and Forecasting in Europe
+# ERA5 Temperature Exploration · Europe
 
-## Description
-This project utilizes data from the Copernicus ERA5 dataset to analyze temperature trends and their potential impacts on climate migration in Europe. By using Python libraries such as `cdsapi` and `xarray`, the project extracts, processes, and analyzes data to visualize temperature changes and identify risk zones for future migration caused by climate factors.
+Copernicus Climate Data Store üzerinden ERA5 sıcaklık örneği indirme ve NetCDF verisini inceleme çalışması. Depo adındaki iklim göçü/öngörü hedefi araştırma niyetidir; mevcut dosyalarda eğitilmiş göç riski veya göç tahmin modeli bulunmaz.
 
-## Objectives
-- Process ERA5 temperature data for European regions.
-- Create visualizations to map temperature trends.
-- Forecast potential migration risks due to extreme climate conditions.
-- Provide insights into sustainable development and urban planning in the context of climate change.
+## İçerik
 
-## Status
-This project is under development. Current progress includes:
-- Successful integration of the CDS API for data retrieval.
-- Initial processing of NetCDF data.
-- Planned implementation of advanced visualizations and predictive models.
+`data_retrieval.ipynb` 2023 Ocak, Şubat ve Mart için seçili gün/saatlerde 2 m sıcaklık verisi ister. Bu sınırlı örnek, uzun dönem sıcaklık eğilimi veya göç nedenselliği analizi değildir. `temperature_europe_2023.nc` tarihsel örnek dosyadır; tam bir yıllık günlük seri olarak yorumlanmamalıdır. İstek alanı ve koordinatları notebook'ta ayrıca kontrol edilmelidir.
 
-## Technology Stack
-- **Programming Language:** Python
-- **Libraries:** cdsapi, xarray, matplotlib, netCDF4
-- **Data Source:** Copernicus ERA5 Dataset
+## Kurulum
 
-## How to Run
-1. Install the required libraries:
-   ```bash
-   pip install cdsapi xarray matplotlib netCDF4
+```sh
+git clone https://github.com/hamzaguner0/Climate-Migration-Risk-Analysis-and-Forecasting-in-Europe.git
+cd Climate-Migration-Risk-Analysis-and-Forecasting-in-Europe
+python -m pip install -r requirements.txt
+jupyter notebook data_retrieval.ipynb
+```
 
-Run the script to retrieve and process data:
-python main.py
+CDS hesabı ve veri lisansı kabulü gerekir. [Resmî CDS API kurulumu](https://cds.climate.copernicus.eu/how-to-api) doğrultusunda anahtarınızı kullanıcı hesabınızdaki `.cdsapirc` dosyasında tutun. Kod `cdsapi.Client()` kullanır; notebook veya Git dosyasına anahtar yazmayın. Yerel yapılandırma dosyası ve `.env` Git dışında tutulur. Bu depoda `main.py` bulunmaz.
 
-Visualize results using tools like Matplotlib.
+## Veri kaynağı ve sınırlar
 
-## Acknowledgments
-This project leverages data provided by the Copernicus Climate Data Store (CDS). Special thanks to the European Centre for Medium-Range Weather Forecasts (ECMWF) for their resources.
+[ERA5 single levels](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview), Copernicus Climate Change Service (C3S). Verinin kullanımı ve yeniden paylaşımı kaynak lisansına tabidir; bu depodaki kod veri üzerinde yeni hak sağlamaz. Tarihsel indirme notebook'u güncel API şeması değişikliklerinde yeniden kontrol edilmelidir; bu düzenlemede hesap erişimiyle yeni veri indirme denenmedi.
 
+İleride uzun dönem ve bölgesel kapsamı doğrulanmış seriler, göç gözlemleri, karıştırıcı değişkenler ve bağımsız değerlendirme gerekir. Mevcut çalışmadan göç riski veya güvenilir gelecek tahmini sonucu çıkarılamaz.
